@@ -1,0 +1,59 @@
+{
+  "expo": {
+    "name": "Hygeia",
+    "slug": "hygeia-mobile",
+    "owner": "nicholasrof",
+    "projectId": "af9442e9-5703-41fe-bda0-a5d74fe73dab",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/hygeia_icon_android.png",
+    "scheme": "hygeiamobile",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nicholasrof.hygeiamobile",
+      "buildNumber": "1",
+      "icon": "./assets/images/hygeia_icon_android.png",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "icon": "./assets/images/hygeia_icon_android.png",
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "package": "com.nicholasrof.hygeiamobile"
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/hygeia_icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff",
+          "dark": {
+            "backgroundColor": "#000000"
+          }
+        }
+      ],
+      "expo-localization"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "af9442e9-5703-41fe-bda0-a5d74fe73dab"
+      }
+    }
+  }
+}
