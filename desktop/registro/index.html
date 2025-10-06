@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hygeia - Registro</title>
+    <!-- Importa estilos CSS da aplicação -->
+    <link rel="stylesheet" href="../estilizacao/styles.css">
+    <!-- Carrega configurações de conexão com a API -->
+    <script src="../configuracao/configuracao-conexao.js"></script>
+</head>
+<body class="auth-page-background">
+    <!-- Botão para alternar idioma da interface -->
+    <div class="language-toggle">
+        <button id="language-btn" onclick="toggleLanguage()">🇧🇷 Português</button>
+    </div>
+    
+    <!-- Container principal do formulário de registro -->
+    <div>
+        <!-- Título da página com suporte a internacionalização -->
+        <h2 data-i18n-key="registerTitle">Registrar Usuário</h2>
+        
+        <!-- Formulário de cadastro de novo usuário -->
+        <form id="registro-form">
+            <!-- Campo de nome completo -->
+            <input type="text" id="nome" data-i18n-key="namePlaceholder" data-i18n-attr="placeholder" placeholder="Nome" required />
+            <!-- Campo de email com validação HTML5 -->
+            <input type="email" id="email" data-i18n-key="emailPlaceholder" data-i18n-attr="placeholder" placeholder="Email" required />
+            <!-- Campo de senha -->
+            <input type="password" id="senha" data-i18n-key="passwordPlaceholder" data-i18n-attr="placeholder" placeholder="Senha" required />
+            <!-- Botão de submissão do formulário -->
+            <button type="submit" data-i18n-key="registerButton">Registrar</button>
+        </form>
+
+        <!-- Link para página de login -->
+        <a href="../login/login.html" data-i18n-key="hasAccount">Já tem uma conta? Login</a>
+
+        <!-- Área para exibir mensagens de erro/sucesso -->
+        <p id="mensagem"></p>
+    </div>
+    
+    <!-- Sistema de internacionalização -->
+    <script src="../i18n.js"></script>
+    <script>
+        // Alterna entre português e inglês
+        function toggleLanguage() {
+            const currentLang = window.i18n.currentLang;
+            const newLang = currentLang === 'pt-BR' ? 'en' : 'pt-BR';
+            window.i18n.setLanguage(newLang);
+        }
+        
+        // Atualiza o texto do botão de idioma baseado no idioma atual
+        function updateLanguageButton() {
+            const btn = document.getElementById('language-btn');
+            const currentLang = window.i18n.currentLang;
+            btn.textContent = currentLang === 'pt-BR' ? '🇧🇷 Português' : '🇺🇸 English';
+        }
+        
+        // Inicializa traduções quando a página carrega
+        document.addEventListener('DOMContentLoaded', () => {
+            window.i18n.applyTranslationsToPage().then(() => {
+                updateLanguageButton();
+            });
+        });
+    </script>
+    
+    <!-- Script principal de funcionalidade de registro -->
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,1142 @@
+/* styles.css */
+
+/* --- Reset Universal para Margens e Paddings --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- Estilos Globais --- */
+html, body {
+    height: 100%;
+    font-family: 'Inter', Arial, sans-serif;
+    line-height: 1.6;
+    color: #343A40;
+    background-color: #F8F9FA;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Ajusta o body para que o conteúdo comece abaixo do header fixo */
+body {
+    padding-top: 60px; /* Isso ainda é necessário para que o conteúdo não fique escondido atrás do header fixo */
+}
+
+
+/* --- Estilos para Páginas de Autenticação (Login e Registro) --- */
+body.auth-page-background {
+    background-image: url('../assets/hygeia.jpeg'); /* Caminho para a sua imagem, ajustado para 'assets' */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Botão de seleção de idioma */
+.language-toggle {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 1000;
+}
+
+#language-btn {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #6A0E1D;
+    border: 2px solid #6A0E1D;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    display: block;
+    margin: 0 auto;
+}
+
+#language-btn:hover {
+    background-color: #6A0E1D;
+    color: white;
+    transform: scale(1.05);
+}
+
+body.auth-page-background > div {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* --- Estilos para Conteúdo Geral das Páginas (pós-login) --- */
+.container {
+    background-color: #FFFFFF;
+    padding: 30px;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    animation: fadeInUp 0.6s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+h1, h2, h3 {
+    color: #212529;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
+    transition: color 0.3s ease;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+/* --- Estilos do Cabeçalho (Header) --- */
+header {
+    background-color: #6A0E1D;
+    padding: 15px 30px;
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    
+    -webkit-app-region: drag; 
+}
+
+/* Classe unificada para links e botões dentro do cabeçalho */
+.header-button {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+    flex-shrink: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    
+    -webkit-app-region: no-drag; 
+}
+
+.header-button:hover {
+    background-color: #8B0000;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* --- Estilos de Formulário --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: #fefefe;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+form div {
+    padding: 0;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #495057;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="url"] {
+    width: calc(100% - 24px);
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto;
+    display: block;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="url"]:focus {
+    border-color: #6A0E1D;
+    box-shadow: 0 0 0 0.2rem rgba(106, 14, 29, 0.25);
+    outline: none;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+button[type="submit"],
+button {
+    background-color: #FFFFFF;
+    color: #6A0E1D;
+    padding: 12px 20px;
+    border: 1px solid #6A0E1D;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+button[type="submit"]:before,
+button:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(106, 14, 29, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+button[type="submit"]:hover:before,
+button:hover:before {
+    width: 300px;
+    height: 300px;
+}
+
+button[type="submit"]:hover,
+button:hover {
+    background-color: #6A0E1D;
+    color: white;
+    transform: translateY(-2px);
+    border-color: #6A0E1D;
+}
+
+button.delete-btn {
+    background-color: #DC3545;
+    color: white;
+    border: 1px solid #DC3545;
+    width: auto;
+    padding: 8px 12px;
+    font-size: 0.9em;
+}
+
+button.delete-btn:hover {
+    background-color: #C82333;
+    color: white;
+    border-color: #C82333;
+}
+
+/* --- Estilos de Tabela --- */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    animation: fadeInUp 0.8s ease-out;
+    transition: box-shadow 0.3s ease;
+}
+
+table:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #EAECEF;
+}
+
+th {
+    background-color: #F0F2F5;
+    color: #495057;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+th:first-child { border-top-left-radius: 8px; }
+th:last-child { border-top-right-radius: 8px; }
+
+tbody tr:last-child td:first-child { border-bottom-left-radius: 8px; }
+tbody tr:last-child td:last-child { border-bottom-right-radius: 8px; }
+
+tr:nth-child(even) {
+    background-color: #FDFDFD;
+}
+
+tr {
+    transition: all 0.3s ease;
+}
+
+tr:hover {
+    background-color: #F0F2F5;
+    transform: scale(1.01);
+}
+
+img {
+    
+    max-width: 100%; /* Faz a imagem se ajustar ao container pai */
+    height: auto;    /* Mantém a proporção */
+    display: block;  /* Evita espaços extras indesejados abaixo da imagem */
+    border-radius: 4px;
+    object-fit: cover;
+    border: 2px solid #EAECEF;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.table-photo {
+    width: 60px;
+    height: 45px;
+    border-radius: 4px;
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    border: 2px solid #EAECEF;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Exceção para a foto preview no formulário */
+img#photoPreview {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+/* --- Estilos da Modal (Histórico de Testes) --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: fadeIn 0.3s ease-out;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    transform: translateY(0);
+    animation: slideInUp 0.4s ease-out;
+    transition: transform 0.3s ease;
+}
+
+.modal-content:hover {
+    transform: translateY(-5px);
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+@keyframes slideInUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(50px) scale(0.9); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+}
+
+@keyframes slideInLeft {
+    from { 
+        opacity: 0; 
+        transform: translateX(-30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(0); 
+    }
+}
+
+@keyframes slideInRight {
+    from { 
+        opacity: 0; 
+        transform: translateX(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(0); 
+    }
+}
+
+
+
+@keyframes pulse {
+    0% { 
+        transform: scale(1); 
+    }
+    50% { 
+        transform: scale(1.05); 
+    }
+    100% { 
+        transform: scale(1); 
+    }
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-button {
+    color: #888;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+}
+
+.modal-content h2 {
+    color: #6A0E1D;
+    margin-bottom: 25px;
+}
+
+.modal-content p {
+    margin-bottom: 10px;
+}
+
+.modal-content p strong {
+    color: #495057;
+}
+
+#detailMotivoErroContainer {
+    color: #DC3545;
+    font-weight: bold;
+}
+
+ul#detailAntibioticosList {
+    list-style-type: disc;
+    padding-left: 25px;
+    margin-top: 10px;
+}
+
+ul#detailAntibioticosList li {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Este é o bloco de mensagem que você quer ocultar se estiver vazio */
+#login-mensagem, #mensagem {
+    /* Propriedades para ocultar se não houver conteúdo */
+    display: none; /* Oculta por padrão */
+    color: #6c757d;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 500;
+    padding: 10px;
+    border: 1px dashed #ced4da;
+    border-radius: 6px;
+    background-color: #f0f2f5;
+}
+
+/* Mensagens de erro/sucesso para outras páginas */
+#noTestsMessage, #noEmployeesMessage {
+    color: #6c757d;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 500;
+    padding: 10px;
+    border: 1px dashed #ced4da;
+    border-radius: 6px;
+    background-color: #f0f2f5;
+}
+
+
+/* --- Estilo para o Teste em Andamento (home.html) --- */
+#currentTestInfo {
+    border: 1px solid #6A0E1D;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #FBECEC;
+    margin-top: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    animation: slideInLeft 0.6s ease-out;
+    transition: all 0.3s ease;
+}
+
+#currentTestInfo:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+#currentTestInfo p {
+    margin: 8px 0;
+}
+
+#currentTestInfo strong {
+    color: #8B0000;
+}
+
+#currentTestInfo ul {
+    list-style-type: disc;
+    padding-left: 25px;
+    margin-top: 10px;
+}
+
+ul#currentTestInfo li {
+    margin-bottom: 3px;
+    color: #555;
+}
+
+/* Estilos para a nova seção de Tempo Restante */
+#tempoRestante {
+    border: 1px solid #6A0E1D;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #FBECEC;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    animation: slideInRight 0.6s ease-out;
+    transition: all 0.3s ease;
+}
+
+#tempoRestante:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+#countdownDisplay {
+    font-size: 2em;
+    font-weight: bold;
+    color: #6A0E1D;
+    animation: pulse 2s infinite;
+}
+
+/* Efeito suave para esconder atraso */
+#home-nome {
+    animation: fadeInPulse 2s ease-in-out infinite;
+}
+
+@keyframes fadeInPulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+/* Centralização dos botões */
+#noTestContainer {
+    text-align: center;
+}
+
+.button-group {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.action-button {
+    display: inline-block;
+    margin: 0 auto;
+    animation: fadeIn 0.8s ease-out;
+    transition: all 0.3s ease;
+}
+
+.action-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(106, 14, 29, 0.3);
+}
+
+.action-button:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* Estilos para o gerenciador de funcionários */
+.webcam-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.webcam-display {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#webcamVideo {
+    border: 2px solid #6A0E1D;
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+}
+
+#photoPreview {
+    max-width: 300px;
+    max-height: 300px;
+    border: 2px solid #6A0E1D;
+    border-radius: 8px;
+    margin: 15px auto;
+    display: block;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#photoPreview:hover {
+    transform: scale(1.05);
+}
+
+#tempoRestante h3 {
+    color: #8B0000;
+    margin-bottom: 10px;
+}
+
+#tempoRestante p {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #343A40;
+}
+
+/* Estilos para o grupo de botões */
+.button-group {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Estilo para o botão "Iniciar Webcam" */
+#startWebcamButton {
+    background-color: #6A0E1D;
+    color: white;
+    border: 1px solid #6A0E1D;
+    width: auto;
+    padding: 10px 20px;
+}
+
+#startWebcamButton:hover {
+    background-color: #8B0000;
+    border-color: #8B0000;
+}
+
+/* ========================================
+   ESTILOS PARA LINKS E NAVEGAÇÃO
+   ======================================== */
+/* Estilos para links gerais da aplicação */
+a {
+    color: #6A0E1D;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #8B0000;
+}
+
+/* ========================================
+   LISTA DE TESTES (HISTÓRICO)
+   ======================================== */
+/* Estilos para a lista de testes no histórico */
+/* Remove marcadores da lista */
+ul#testList {
+    list-style: none;
+    padding: 0;
+}
+
+/* Card individual para cada teste no histórico */
+.test-item {
+    background-color: #FFFFFF;
+    border: 1px solid #EAECEF;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Animações suaves */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+}
+
+.test-item:hover {
+    background-color: #F0F2F5;
+    transform: translateY(-3px);
+}
+
+.test-item span:first-child {
+    font-weight: bold;
+    color: #6A0E1D;
+    font-size: 1.1em;
+}
+
+.test-item span:last-child {
+    color: #6c757d;
+    font-size: 0.9em;
+}
+
+/* ========================================
+   SEÇÃO DE WEBCAM E CAPTURA DE FOTO
+   ======================================== */
+/* Container principal da webcam para cadastro de funcionários */
+.webcam-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px dashed #ced4da;
+    border-radius: 8px;
+    background-color: #fefefe;
+    margin-top: 10px;
+}
+
+/* Área de exibição da webcam com proporção 4:3 */
+.webcam-display {
+    position: relative;
+    width: 100%;
+    max-width: 320px; /* Largura padrão de webcam */
+    height: 240px; /* Altura padrão de webcam (4:3) */
+    background-color: #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex; /* Centraliza vídeo/canvas */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Vídeo da webcam e canvas para captura */
+#webcamVideo, #photoCanvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Preenche sem distorcer */
+    border-radius: 8px;
+}
+
+#photoPreview {
+    width: 100%;
+    max-width: 320px; /* Manter consistência com o display */
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 2px solid #6A0E1D; /* Borda para a foto pré-visualizada */
+}
+
+
+/* ========================================
+   RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS
+   ======================================== */
+/* Adaptações para telas menores que 768px */
+/* Adaptações para tablets e smartphones */
+@media (max-width: 768px) {
+    body {
+        padding: 0; /* Remove padding para aproveitar toda a tela */
+    }
+
+    .container {
+        padding: 20px;
+        margin: 10px auto;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    h3 {
+        font-size: 1.2em;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+        border-radius: 0; /* Garante que o header seja quadrado em mobile também */
+    }
+
+    .header-button { /* Ajuste de responsividade para os botões do header */
+        width: 100%;
+        text-align: center;
+        padding: 8px 15px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="url"] {
+        width: calc(100% - 20px);
+    }
+
+    /* Transforma tabelas em cards empilháveis */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    /* Oculta cabeçalho da tabela em mobile */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #EAECEF;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    }
+
+    td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        min-height: 40px;
+    }
+
+    /* Cria rótulos para células usando data-label */
+    td:before {
+        content: attr(data-label);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 45%;
+        padding: 12px 15px;
+        white-space: nowrap;
+        font-weight: bold;
+        text-align: left;
+        background-color: #F0F2F5;
+        border-right: 1px solid #EAECEF;
+        box-sizing: border-box;
+    }
+    
+    td:last-child {
+        text-align: center;
+        justify-content: center;
+        padding: 12px 15px;
+        background-color: #F0F2F5;
+    }
+
+    .modal-content {
+        padding: 20px;
+        width: 95%;
+    }
+
+    .close-button {
+        font-size: 28px;
+        top: 10px;
+        right: 20px;
+    }
+
+    .test-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .test-item span:first-child {
+        margin-bottom: 5px;
+    }
+    
+    .webcam-display {
+        max-width: 280px;
+        height: 210px;
+    }
+    
+    #photoPreview {
+        max-width: 280px;
+    }
+    
+    .modal-content {
+        margin: 10px;
+    }
+}
+
+/* ========================================
+   MODAL DE DETALHES DO TESTE
+   ======================================== */
+/* Container para exibir imagens das placas no modal */
+#detailImagesContainer {
+    display: flex;
+    flex-direction: column; /* Empilha os itens verticalmente */
+    align-items: center;    /* Centraliza as imagens na horizontal */
+    gap: 15px;              /* Adiciona um espaço vertical entre as imagens */
+    margin-top: 20px;
+}
+
+/* Estilização individual das imagens das placas */
+#detailImagesContainer img {
+    max-width: 95%;         /* Permite que a imagem ocupe quase toda a largura do modal */
+    height: auto;           /* Mantém a proporção da imagem */
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    display: none; /* O JavaScript irá controlar a exibição */
+}
+
+/* ========================================
+   MODAL DE CONFIRMAÇÃO DE RESULTADOS
+   ======================================== */
+/* Tabela de resultados no modal de confirmação */
+#confirm-results-table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+#confirm-results-table th, 
+#confirm-results-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#confirm-results-table th {
+    background-color: #f2f2f2;
+}
+
+#confirm-images-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+#confirm-images-container img {
+    max-width: 48%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#confirm-status {
+    font-weight: bold;
+}
+
+/* Botões de ação no modal de confirmação */
+.confirm-btn {
+    background-color: #28a745; /* Verde */
+    color: white;
+    border-color: #28a745;
+}
+
+.confirm-btn:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.reject-btn {
+    background-color: #DC3545; /* Vermelho */
+    color: white;
+    border-color: #DC3545;
+}
+
+.reject-btn:hover {
+    background-color: #C82333;
+    border-color: #bd2130;
+}
+
+#rejection-reason-container textarea {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 1rem;
+}
+
+/* ========================================
+   TELA DE ERRO
+   ======================================== */
+/* Layout da tela de erro com animações */
+.error-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    margin: 0;
+    z-index: 9999;
+}
+
+.error-container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.error-icon {
+    font-size: 4em;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+.error-screen h2 {
+    color: #6A0E1D;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.error-message {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.error-retry-btn {
+    background-color: #DC3545 !important;
+    border-color: #DC3545 !important;
+}
+
+.error-retry-btn:hover {
+    background-color: #C82333 !important;
+    border-color: #bd2130 !important;
+}
+
+/* ========================================
+   CORREÇÕES DE INPUTS
+   ======================================== */
+/* Garante funcionalidade adequada dos campos de entrada */
+input[type="text"],
+input[type="email"], 
+input[type="password"],
+input[type="url"],
+textarea,
+select {
+    pointer-events: auto !important;
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="url"]:focus,
+textarea:focus,
+select:focus {
+    pointer-events: auto !important;
+    outline: none;
+    border-color: #6A0E1D;
+    box-shadow: 0 0 0 0.2rem rgba(106, 14, 29, 0.25);
+}

@@ -1,0 +1,86 @@
+{
+  "name": "hygeia",
+  "version": "1.0.0",
+  "description": "projete",
+  "main": "main.js",
+  "scripts": {
+    "test": "amarelo",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "server": "node server.js",
+    "electron": "npm run start",
+    "dev": "concurrently \"npm run server\" \"npm run electron\""
+  },
+  "keywords": [
+    "12345"
+  ],
+  "author": "nicholas",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "electron-pos-printer": "^1.3.8",
+    "electron-squirrel-startup": "^1.0.1",
+    "express": "^5.1.0",
+    "mqtt": "^5.14.0",
+    "multer": "^2.0.2",
+    "pg": "^8.14.1",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.8.0",
+    "@electron-forge/maker-deb": "^7.8.0",
+    "@electron-forge/maker-rpm": "^7.8.0",
+    "@electron-forge/maker-squirrel": "^7.9.0",
+    "@electron-forge/maker-zip": "^7.8.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.8.0",
+    "@electron-forge/plugin-fuses": "^7.8.0",
+    "@electron/fuses": "^1.8.0",
+    "@types/qrcode": "^1.5.5",
+    "concurrently": "^9.2.0",
+    "electron": "^35.1.1"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "assets/hygeia.ico",
+        "asar": true
+      },
+      "rebuildConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "HygeiaApp",
+            "setupIcon": "assets/hygeia.ico",
+            "createDesktopShortcut": true,
+            "createStartMenuShortcut": true,
+            "shortcutName": "Hygeia"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ],
+      "plugins": [
+        {
+          "name": "@electron-forge/plugin-auto-unpack-natives",
+          "config": {}
+        }
+      ]
+    }
+  }
+}
